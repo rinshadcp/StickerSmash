@@ -2,10 +2,12 @@ import { View, StyleSheet } from "react-native";
 import { Image } from "expo-image";
 
 type Props = {
-  imageSource: string;
+  imgSource: string;
+  selectedImage?: string;
 };
 
-const ImageViewer = ({ imageSource }: Props) => {
+const ImageViewer = ({ imgSource, selectedImage }: Props) => {
+  const imageSource = selectedImage ? { uri: selectedImage } : imgSource;
   return (
     <View>
       <Image source={imageSource} style={styles.image} />
